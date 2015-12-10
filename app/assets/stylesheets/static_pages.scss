@@ -10,13 +10,30 @@
   border: 2px solid gray;
 }
 
-.organ section {
+section {
   float: left;
   height: 100%;
   flex-basis: 100%;
   border-right: 1px solid black;
+  line-height: 550px;
+  text-align: center;
 
 } //keys
+
+.sharp {
+  position: absolute;
+  width: 60px;
+  height: 200px;
+  background-color: black;
+  color: white;
+  margin-left: -30px;
+  border-width: 0px 1px 1px 1px;
+  border-style: solid;
+  border-color: black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  line-height: 360px;
+}
 
 .playing{
   background-color: yellow;

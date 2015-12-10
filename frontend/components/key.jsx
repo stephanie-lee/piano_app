@@ -7,7 +7,8 @@ var Key = React.createClass({
   getInitialState: function(){
     return ({
       currentKeys: KeyStore.all(),
-      playing: false
+      playing: false,
+      sharp: false
     });
   },
 
@@ -19,6 +20,10 @@ var Key = React.createClass({
     var freq = Tones[this.props.noteName];
     this.note = new Note(freq);
     this.token = KeyStore.addListener(this._currentKeysChanged);
+
+    if (this.props.noteName.length === 3) {
+      this.state.sharp = true;
+    }
   },
 
   componentWillUnmount: function(){
@@ -36,8 +41,9 @@ var Key = React.createClass({
       this.state.playing = false;
     }
     var className = (this.state.playing) ? "playing" : "";
+    var sharp = (this.state.sharp) ? "sharp" : "";
     return(
-      <section className={className}>{noteName}</section>
+      <section className={className + " " + sharp}>{noteName}</section>
     );
   }
 

@@ -25,7 +25,6 @@ var keyListeners = {
       if (keyName) {
         KeyActions.keyPressed(keyName);
       }
-      console.log(Mapping[e.keyCode]);
     });
 
     $(document).keyup(function(e){
@@ -34,8 +33,6 @@ var keyListeners = {
       if (keyName) {
         KeyActions.keyDepressed(keyName);
       }
-
-      console.log(Mapping[e.keyCode]);
     });
   },
 };
