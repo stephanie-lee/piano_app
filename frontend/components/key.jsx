@@ -5,7 +5,10 @@ var KeyStore = require('../stores/KeyStore.js');
 
 var Key = React.createClass({
   getInitialState: function(){
-    return { currentKeys: KeyStore.all() };
+    return ({
+      currentKeys: KeyStore.all(),
+      playing: false
+    });
   },
 
   _currentKeysChanged: function(){
@@ -27,11 +30,14 @@ var Key = React.createClass({
     var noteName = this.props.noteName;
     if( currentKeys.indexOf(noteName) !== -1) {
       this.note.start();
+      this.state.playing = true;
     } else {
       this.note.stop();
+      this.state.playing = false;
     }
+    var className = (this.state.playing) ? "playing" : "";
     return(
-      <section>{noteName}</section>
+      <section className={className}>{noteName}</section>
     );
   }
 
