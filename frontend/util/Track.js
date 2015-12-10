@@ -12,7 +12,6 @@ Track.prototype.startRecording = function() {
 
 Track.prototype.addNotes = function(notes) {
   var timeSlice = Date.now() - this.startTime;
-  console.log(timeSlice);
   var obj = {timeSlice: timeSlice, notes: notes};
 
   this.roll.push(obj);
