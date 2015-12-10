@@ -1,3 +1,24 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.organ {
+  width: 1000px;
+  display: flex;
+  height: 300px;
+  margin: 0 auto;
+  border: 2px solid gray;
+}
+
+.organ section {
+  float: left;
+  height: 100%;
+  flex-basis: 100%;
+  border-right: 1px solid black;
+
+} //keys
+
+.organ section:last-of-type{
+  border-right: none;
+
+}

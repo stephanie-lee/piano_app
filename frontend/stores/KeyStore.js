@@ -17,18 +17,25 @@ KeyStore.__onDispatch = function(payload) {
       createNote(payload.keyName);
       break;
     case "REMOVE_KEY":
-
+      removeNote(payload.keyName);
+      break;
   }
 };
 
 var createNote = function(note) {
-  _keys.push(note);
-  KeyStore.__emitChange();
+  var noteIdx = _keys.indexOf(note);
+  if (noteIdx === -1){
+    _keys.push(note);
+    KeyStore.__emitChange();
+  }
 };
 
 var removeNote = function(note) {
-  if(note)
-  _keys.indexOf
-}
+  var noteIdx = _keys.indexOf(note);
+  if (noteIdx !== -1){
+    _keys.splice(noteIdx, 1);
+    KeyStore.__emitChange();
+  }
+};
 
 module.exports = KeyStore;
